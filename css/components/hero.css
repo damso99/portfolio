@@ -1,0 +1,377 @@
+/* Hero 섹션 전용 스타일 */
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.12), transparent 30%),
+    radial-gradient(circle at 85% 30%, rgba(56, 189, 248, 0.16), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(245, 247, 251, 0.98));
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.28;
+  background-image: radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.12) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(124, 58, 237, 0.04), transparent 42%),
+    linear-gradient(315deg, rgba(56, 189, 248, 0.05), transparent 34%);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+  padding: 0.5rem 0 3rem;
+}
+
+.hero__copy {
+  max-width: 34rem;
+}
+
+.hero__eyebrow {
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.hero__name {
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 7vw, 6.6rem);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+  color: var(--color-text);
+}
+
+.hero__tagline {
+  margin-bottom: 1rem;
+  color: var(--color-text);
+  font-size: clamp(1.15rem, 2vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.38;
+}
+
+.hero__sub-tagline {
+  max-width: 40rem;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+.hero__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.35rem;
+  padding: 0.95rem 1.35rem;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 0.96rem;
+  font-weight: 700;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base), background-color var(--transition-base);
+}
+
+.hero__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.14);
+}
+
+.hero__button--primary {
+  color: var(--color-white);
+  background: #0f1115;
+  border: 1px solid rgba(15, 17, 21, 0.9);
+}
+
+.hero__button--secondary {
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(15, 23, 42, 0.16);
+}
+
+.hero__visual {
+  position: relative;
+  min-height: 24rem;
+  justify-self: end;
+  width: min(100%, 34rem);
+}
+
+.hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(12px);
+}
+
+.hero__orb--primary {
+  top: 18%;
+  right: 8%;
+  width: 15rem;
+  height: 15rem;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.24), rgba(168, 85, 247, 0.05) 62%, transparent 72%);
+}
+
+.hero__orb--secondary {
+  bottom: 10%;
+  right: 0;
+  width: 11rem;
+  height: 11rem;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.18), rgba(59, 130, 246, 0.05) 62%, transparent 72%);
+}
+
+.hero__device {
+  position: absolute;
+  border-radius: 1.25rem;
+  background: linear-gradient(180deg, #111318, #2a2d36);
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 0.24);
+}
+
+.hero__device--laptop {
+  right: 3%;
+  top: 12%;
+  width: min(100%, 28rem);
+  aspect-ratio: 1.2;
+  transform: rotate(5deg);
+}
+
+.hero__device--laptop::before {
+  content: "";
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: -4.5%;
+  height: 6%;
+  border-radius: 0 0 1rem 1rem;
+  background: linear-gradient(180deg, rgba(31, 41, 55, 0.88), rgba(17, 24, 39, 1));
+}
+
+.hero__device-screen {
+  position: absolute;
+  inset: 4.5% 4.5% 10% 4.5%;
+  border-radius: 1rem;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.18), transparent 18%),
+    radial-gradient(circle at 80% 16%, rgba(56, 189, 248, 0.16), transparent 16%),
+    linear-gradient(180deg, #f8fafc, #eef2ff);
+  overflow: hidden;
+}
+
+.hero__screen-top {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.65), rgba(56, 189, 248, 0.65));
+  opacity: 0.75;
+}
+
+.hero__screen-grid {
+  position: absolute;
+  inset: 3.8rem 1rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr 0.72fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.hero__screen-grid span {
+  border-radius: 1rem;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.6)),
+    linear-gradient(135deg, rgba(124, 58, 237, 0.12), rgba(56, 189, 248, 0.12));
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.05);
+}
+
+.hero__screen-grid span:first-child {
+  grid-row: 1 / span 2;
+}
+
+.hero__device--phone {
+  left: 2%;
+  bottom: 3%;
+  width: min(8.5rem, 25%);
+  aspect-ratio: 0.5;
+  transform: rotate(-5deg);
+  border-radius: 1.8rem;
+  border: 0.35rem solid #0f1115;
+  background: linear-gradient(180deg, #20232d, #343845);
+  z-index: 2;
+}
+
+.hero__phone-notch {
+  position: absolute;
+  top: 0.55rem;
+  left: 50%;
+  width: 35%;
+  height: 0.35rem;
+  border-radius: 999px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.hero__phone-screen {
+  position: absolute;
+  inset: 1.4rem 0.55rem 0.55rem;
+  border-radius: 1.15rem;
+  background:
+    radial-gradient(circle at top right, rgba(124, 58, 237, 0.2), transparent 34%),
+    linear-gradient(180deg, #f8fafc, #eef2ff);
+  padding: 0.9rem;
+}
+
+.hero__phone-line {
+  width: 100%;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.12);
+  margin-bottom: 0.45rem;
+}
+
+.hero__phone-line--lg {
+  width: 72%;
+  height: 0.75rem;
+  margin-bottom: 0.8rem;
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.9), rgba(56, 189, 248, 0.9));
+}
+
+.hero__phone-card {
+  margin-top: 0.9rem;
+  height: 5rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.16), rgba(56, 189, 248, 0.16));
+}
+
+.hero__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 0.75rem;
+  transform: translateX(-50%);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--color-text-muted);
+}
+
+.hero__scroll-text {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.hero__scroll-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(124, 58, 237, 0.16);
+  animation: heroBounce 1.6s ease-in-out infinite;
+}
+
+@keyframes heroBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll-arrow {
+    animation: none;
+  }
+  .hero__button {
+    transition: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero__inner {
+    grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+    min-height: 100vh;
+    padding: 0.75rem 0 3rem;
+  }
+
+  .hero__copy {
+    padding-right: 0.5rem;
+  }
+
+  .hero__visual {
+    min-height: 34rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-section {
+    min-height: 100vh;
+  }
+
+  .hero__inner {
+    padding: 3.5rem 0 3rem;
+  }
+
+  .hero__visual {
+    min-height: 18rem;
+    margin-top: 1rem;
+  }
+
+  .hero__actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .hero__button {
+    width: 100%;
+  }
+
+  .hero__device--laptop {
+    right: 0;
+    width: min(86vw, 28rem);
+  }
+
+  .hero__device--phone {
+    left: 4%;
+    width: min(18vw, 7rem);
+  }
+
+  .hero__scroll {
+    bottom: 0.5rem;
+  }
+}
