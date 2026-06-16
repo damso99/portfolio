@@ -98,6 +98,13 @@
     elements.forEach(function (element) {
       observer.observe(element);
     });
+
+    // 첫 화면에서도 섹션이 바로 보이도록 안전망을 둔다.
+    window.requestAnimationFrame(function () {
+      elements.forEach(function (element) {
+        element.classList.add("is-visible");
+      });
+    });
   }
 
   // DOM 준비 후 UI 기능을 시작한다.

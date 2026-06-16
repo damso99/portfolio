@@ -1,43 +1,36 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <!-- 기본 메타 정보 -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>성태경 포트폴리오</title>
-  <meta name="description" content="성태경의 백엔드 및 포트폴리오 사이트입니다." />
+  <meta name="description" content="성태경의 백엔드 및 프로젝트 쇼케이스 포트폴리오 사이트입니다." />
 
-  <!-- Open Graph 메타 정보 -->
   <meta property="og:title" content="성태경 포트폴리오" />
-  <meta property="og:description" content="서비스 흐름을 이해하고 구현하는 백엔드 개발자 포트폴리오입니다." />
+  <meta property="og:description" content="서비스 흐름과 배포까지 고려하는 백엔드 개발자의 포트폴리오입니다." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://dummyimage.com/1200x630/1e1b4b/ffffff.png&text=Portfolio" />
 
-  <!-- Google Fonts: Noto Sans KR + Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
 
-  <!-- CSS 로드 순서 -->
-  <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/variables.css" />
-  <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="css/components/hero.css" />
-  <link rel="stylesheet" href="css/components/project.css" />
-  <link rel="stylesheet" href="css/components/about.css" />
+  <link rel="stylesheet" href="./css/reset.css?v=20260616-3" />
+  <link rel="stylesheet" href="./css/variables.css?v=20260616-3" />
+  <link rel="stylesheet" href="./css/layout.css?v=20260616-3" />
+  <link rel="stylesheet" href="./css/components/hero.css?v=20260616-3" />
+  <link rel="stylesheet" href="./css/components/about.css?v=20260616-3" />
+  <link rel="stylesheet" href="./css/components/projects.css?v=20260616-3" />
 
-  <!-- 스크립트 로드 순서: renderer.js → main.js → ui.js -->
-  <script src="js/renderer.js" defer></script>
-  <script src="js/main.js" defer></script>
-  <script src="js/ui.js" defer></script>
+  <script src="./js/renderer.js?v=20260616-3" defer></script>
+  <script src="./js/main.js?v=20260616-3" defer></script>
+  <script src="./js/ui.js?v=20260616-3" defer></script>
 </head>
 <body>
-  <!-- 전체 사이트 래퍼 -->
   <div class="site-shell">
-    <!-- 좌측 고정 사이드바 -->
     <aside class="sidebar" id="sidebar" aria-label="사이드바 내비게이션">
       <div class="sidebar__top">
-        <a class="sidebar__logo" href="#hero" aria-label="홈으로 이동">
+        <a class="sidebar__logo" href="#hero" aria-label="처음으로 이동">
           <span class="sidebar__logo-mark">SK</span>
           <span class="sidebar__logo-text">SUNG TAEKYUNG</span>
         </a>
@@ -62,41 +55,33 @@
       </div>
     </aside>
 
-    <!-- 우측 메인 콘텐츠 -->
     <main class="main-content">
-      <!-- 모바일 햄버거 버튼 -->
       <button class="mobile-menu-button" type="button" aria-label="메뉴 열기" aria-controls="sidebar" aria-expanded="false">
         <span class="mobile-menu-button__line" aria-hidden="true"></span>
         <span class="mobile-menu-button__line" aria-hidden="true"></span>
         <span class="mobile-menu-button__line" aria-hidden="true"></span>
       </button>
 
-      <!-- Hero 섹션 -->
       <section id="hero" class="section hero-section fade-in">
         <div id="hero-content"></div>
       </section>
 
-      <!-- About 섹션 -->
       <section id="about" class="section about fade-in">
         <div id="about-content" class="section__content"></div>
       </section>
 
-      <!-- Tech Stack 섹션 -->
       <section id="tech-stack" class="section tech-stack fade-in">
         <div id="tech-stack-content" class="section__content"></div>
       </section>
 
-      <!-- Projects 섹션 -->
       <section id="projects" class="section projects fade-in">
         <div id="projects-content" class="section__content"></div>
       </section>
 
-      <!-- Experience 섹션 -->
       <section id="experience" class="section experience fade-in">
         <div id="experience-content" class="section__content"></div>
       </section>
 
-      <!-- Contact 섹션 -->
       <section id="contact" class="section contact fade-in">
         <div id="contact-content" class="section__content"></div>
       </section>

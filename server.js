@@ -35,7 +35,9 @@ function getContentType(filePath) {
 
 // 요청 URL을 실제 파일 경로로 매핑한다.
 function resolveFilePath(requestUrl) {
-  const safeUrl = requestUrl === '/' ? '/index.html' : requestUrl;
+  const rawUrl = requestUrl || '/';
+  const pathname = rawUrl.split('?')[0].split('#')[0];
+  const safeUrl = pathname === '/' ? '/index.html' : pathname;
   const normalizedPath = path.normalize(decodeURIComponent(safeUrl)).replace(/^(\.\.(\\|\/|$))+/, '');
   return path.join(rootDir, normalizedPath);
 }
