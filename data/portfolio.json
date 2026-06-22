@@ -153,11 +153,8 @@
     "title": "함께 일할 수 있는 개발자",
     "description": "서비스를 끝까지 완성하는 방식에 관심이 많습니다. 프로젝트와 협업 문의는 GitHub 또는 링크된 프로젝트를 통해 확인할 수 있습니다.",
     "github": "https://github.com/damso99",
+    "email": "mailto:ralphie@naver.com",
     "projectLinks": [
-      {
-        "name": "ralphie@naver.com",
-        "url": "mailto:ralphie@naver.com"
-      },
       {
         "name": "GreenCarry",
         "url": "https://greencarry.vercel.app/"

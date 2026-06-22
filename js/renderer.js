@@ -315,6 +315,8 @@
     }
 
     var projectLinks = Array.isArray(contact.projectLinks) ? contact.projectLinks : [];
+    var emailHref = safeHref(contact.email);
+    var emailLabel = contact.email ? String(contact.email).replace(/^mailto:/i, "") : "";
 
     container.innerHTML = [
       '<div class="section-label">Contact</div>',
@@ -324,6 +326,10 @@
       '  <div class="contact-card">',
       '    <div class="contact-card__label">GitHub</div>',
       '    <a class="contact-card__link" href="' + escapeHTML(safeHref(contact.github)) + '" target="_blank" rel="noopener noreferrer">' + escapeHTML(contact.github || "") + "</a>",
+      "  </div>",
+      '  <div class="contact-card">',
+      '    <div class="contact-card__label">Email</div>',
+      '    <a class="contact-card__link" href="' + escapeHTML(emailHref) + '">' + escapeHTML(emailLabel) + "</a>",
       "  </div>",
       '  <div class="contact-card">',
       '    <div class="contact-card__label">Projects</div>',
