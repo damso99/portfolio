@@ -155,6 +155,10 @@
     "github": "https://github.com/damso99",
     "projectLinks": [
       {
+        "name": "ralphie@naver.com",
+        "url": "mailto:ralphie@naver.com"
+      },
+      {
         "name": "GreenCarry",
         "url": "https://greencarry.vercel.app/"
       },
