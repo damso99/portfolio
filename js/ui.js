@@ -1,6 +1,6 @@
-/* 내비게이션, 모바일 메뉴, 페이드 인 애니메이션을 관리한다. */
+/* 사이드바 내비게이션, 모바일 메뉴, 페이드인 효과를 관리한다. */
 (function () {
-  // 현재 활성 섹션을 계산하고 nav 상태를 갱신한다.
+  // 현재 화면 기준으로 활성 섹션을 계산하고 nav 상태를 갱신한다.
   function initActiveNavigation() {
     var sections = Array.prototype.slice.call(document.querySelectorAll(".section[id]"));
     var links = Array.prototype.slice.call(document.querySelectorAll(".sidebar__nav-link"));
@@ -12,34 +12,80 @@
       return acc;
     }, {});
 
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
+    var activeId = "";
+    var ticking = false;
 
-          var id = entry.target.getAttribute("id");
-          links.forEach(function (link) {
-            link.classList.remove("is-active");
-          });
-
-          if (linkById[id]) {
-            linkById[id].classList.add("is-active");
-          }
-        });
-      },
-      {
-        root: null,
-        threshold: 0.45,
-        rootMargin: "-15% 0px -40% 0px"
+    function setActiveLink(id) {
+      if (!id || activeId === id) {
+        return;
       }
-    );
 
-    sections.forEach(function (section) {
-      observer.observe(section);
+      activeId = id;
+
+      links.forEach(function (link) {
+        link.classList.remove("is-active");
+      });
+
+      if (linkById[id]) {
+        linkById[id].classList.add("is-active");
+      }
+    }
+
+    function getSectionAtFocusLine() {
+      var focusLine = window.innerHeight * 0.35;
+      var fallbackId = sections[0].getAttribute("id") || "";
+
+      for (var i = 0; i < sections.length; i += 1) {
+        var section = sections[i];
+        var rect = section.getBoundingClientRect();
+        var sectionId = section.getAttribute("id") || "";
+
+        if (!sectionId) {
+          continue;
+        }
+
+        if (rect.top <= focusLine && rect.bottom >= focusLine) {
+          return sectionId;
+        }
+
+        if (rect.top <= focusLine) {
+          fallbackId = sectionId;
+        }
+      }
+
+      return fallbackId;
+    }
+
+    function updateActiveNavigation() {
+      setActiveLink(getSectionAtFocusLine());
+    }
+
+    function requestActiveNavigationUpdate() {
+      if (ticking) {
+        return;
+      }
+
+      ticking = true;
+      window.requestAnimationFrame(function () {
+        ticking = false;
+        updateActiveNavigation();
+      });
+    }
+
+    links.forEach(function (link) {
+      link.addEventListener("click", function () {
+        var id = (link.getAttribute("href") || "").replace("#", "");
+        setActiveLink(id);
+      });
     });
+
+    window.addEventListener("scroll", requestActiveNavigationUpdate, { passive: true });
+    window.addEventListener("resize", requestActiveNavigationUpdate);
+
+    updateActiveNavigation();
   }
 
-  // 모바일 햄버거 메뉴의 열림/닫힘 상태를 제어한다.
+  // 모바일 사이드바 메뉴의 열림/닫힘 상태를 제어한다.
   function initMobileMenu() {
     var sidebar = document.querySelector(".sidebar");
     var button = document.querySelector(".mobile-menu-button");
@@ -99,7 +145,7 @@
       observer.observe(element);
     });
 
-    // 첫 화면에서도 섹션이 바로 보이도록 안전망을 둔다.
+    // 첫 화면에서 바로 보여야 하는 섹션은 즉시 visible 상태로 만든다.
     window.requestAnimationFrame(function () {
       elements.forEach(function (element) {
         element.classList.add("is-visible");
@@ -107,7 +153,7 @@
     });
   }
 
-  // DOM 준비 후 UI 기능을 시작한다.
+  // DOM이 준비되면 UI 기능을 초기화한다.
   document.addEventListener("DOMContentLoaded", function () {
     initActiveNavigation();
     initMobileMenu();
